@@ -88,19 +88,20 @@ export default function HomePage() {
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           {[
-            { name: 'Tonkotsu Classic', price: '$14', desc: 'Rich pork bone broth, chashu pork, soft egg, bamboo shoots', img: 'photo-1591814468924-caf88d1232e1' },
-            { name: 'Spicy Miso', price: '$15', desc: 'Fermented miso base, chilli oil, corn, ground pork, spring onion', img: 'photo-1569050467447-ce54b3bbc37d' },
-            { name: 'Shio Tori', price: '$13', desc: 'Clear chicken broth, delicate salt seasoning, yuzu zest, nori', img: 'photo-1614563637806-1d0e645e0940' },
+            { name: 'Tonkotsu Classic', price: '$14', desc: 'Rich pork bone broth, chashu pork, soft egg, bamboo shoots', img: '12827295802_c4df588c-c0d9-437c-b492-cc23ea32582f_900x_tf1o9x' },
+            { name: 'Spicy Miso', price: '$15', desc: 'Fermented miso base, chilli oil, corn, ground pork, spring onion', img: 'R02843-Spicy-Miso-Ramen-619x412_wperaf' },
+            { name: 'Shio Tori', price: '$13', desc: 'Clear chicken broth, delicate salt seasoning, yuzu zest, nori', img: 'shiotori_pavy5g' },
           ].map((dish) => (
             <div key={dish.name} style={{
               background: 'var(--color-surface)',
               borderRadius: '8px', overflow: 'hidden',
               border: '1px solid rgba(200,146,42,0.1)'
             }}>
-              <div style={{
-                height: '200px',
-                background: `url('https://images.unsplash.com/photo-${dish.img}?w=600') center/cover`
-              }} />
+              <img
+                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_600,h_200,c_fill/${dish.img}`}
+                alt={dish.name}
+                style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }}
+              />
               <div style={{ padding: '1.25rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
                   <h3 style={{ fontSize: '1.1rem' }}>{dish.name}</h3>
