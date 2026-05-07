@@ -98,7 +98,7 @@ export default function HomePage() {
               border: '1px solid rgba(200,146,42,0.1)'
             }}>
               <img
-                src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_600,h_200,c_fill/${dish.img}`}
+                src={`https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/w_600,h_200,c_fill/${dish.img}`}
                 alt={dish.name}
                 style={{ width: '100%', height: '200px', objectFit: 'cover', display: 'block' }}
               />
