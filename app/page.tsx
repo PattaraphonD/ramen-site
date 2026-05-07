@@ -13,7 +13,7 @@ export default function HomePage() {
         borderBottom: '1px solid rgba(200,146,42,0.15)'
       }}>
         <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--color-primary)' }}>
-          麺 Ramen House
+          富裕 Fuyou Ramen House
         </span>
         <div style={{ display: 'flex', gap: '2rem', fontSize: '0.9rem' }}>
           <Link href="/menu" style={{ color: 'var(--color-text)', textDecoration: 'none' }}>Menu</Link>
@@ -134,7 +134,7 @@ export default function HomePage() {
         margin: '0 auto'
       }}>
         <div>
-          <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>麺 Ramen House</p>
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>富裕 Fuyou Ramen House</p>
           <p style={{ color: 'var(--color-muted)', fontSize: '0.9rem' }}>Authentic Japanese ramen,<br />made with love and patience.</p>
         </div>
         <div>
