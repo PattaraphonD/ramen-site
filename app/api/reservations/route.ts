@@ -1,17 +1,21 @@
 export const dynamic = 'force-dynamic'
 
-import { supabase } from '@/lib/supabase'
-import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
+    const { createClient } = await import('@supabase/supabase-js')
+    const { Resend } = await import('resend')
+
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     const body = await request.json()
     const { name, email, date, time, party_size, message } = body
 
-    // Basic validation
     if (!name || !email || !date || !time || !party_size) {
       return NextResponse.json(
         { error: 'Please fill in all required fields.' },
@@ -19,7 +23,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Save to Supabase
     const { error: dbError } = await supabase
       .from('reservations')
       .insert([{ name, email, date, time, party_size, message }])
@@ -32,7 +35,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Send confirmation email
     await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: email,
