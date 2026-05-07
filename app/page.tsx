@@ -1,65 +1,151 @@
-import Image from "next/image";
+import Link from 'next/link'
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+
+      {/* Navigation */}
+      <nav style={{
+        position: 'fixed', top: 0, width: '100%', zIndex: 100,
+        padding: '1.25rem 2.5rem',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        background: 'rgba(15,14,12,0.85)', backdropFilter: 'blur(8px)',
+        borderBottom: '1px solid rgba(200,146,42,0.15)'
+      }}>
+        <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--color-primary)' }}>
+          麺 Ramen House
+        </span>
+        <div style={{ display: 'flex', gap: '2rem', fontSize: '0.9rem' }}>
+          <Link href="/menu" style={{ color: 'var(--color-text)', textDecoration: 'none' }}>Menu</Link>
+          <Link href="/blog" style={{ color: 'var(--color-text)', textDecoration: 'none' }}>Our Story</Link>
+          <Link href="/reservations" style={{
+            color: 'var(--color-bg)', background: 'var(--color-primary)',
+            padding: '0.4rem 1.1rem', borderRadius: '4px', textDecoration: 'none', fontWeight: 500
+          }}>Reserve</Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* Hero */}
+      <section style={{
+        minHeight: '100vh',
+        display: 'flex', flexDirection: 'column',
+        justifyContent: 'center', alignItems: 'center', textAlign: 'center',
+        padding: '2rem',
+        background: `linear-gradient(rgba(15,14,12,0.6) 0%, rgba(15,14,12,0.85) 100%),
+                     url('https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=1600') center/cover`
+      }}>
+        <p style={{ color: 'var(--color-primary)', letterSpacing: '0.3em', fontSize: '0.8rem', marginBottom: '1.5rem' }}>
+          AUTHENTIC JAPANESE RAMEN
+        </p>
+        <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+          A Bowl Full<br />of Soul
+        </h1>
+        <p style={{ color: 'var(--color-muted)', maxWidth: '480px', marginBottom: '2.5rem', fontSize: '1.05rem' }}>
+          Slow-simmered broths, hand-pulled noodles, and flavours
+          passed down through three generations.
+        </p>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Link href="/reservations" style={{
+            background: 'var(--color-primary)', color: 'var(--color-bg)',
+            padding: '0.85rem 2rem', borderRadius: '4px',
+            textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem'
+          }}>
+            Reserve a Table
+          </Link>
+          <Link href="/menu" style={{
+            border: '1px solid var(--color-primary)', color: 'var(--color-primary)',
+            padding: '0.85rem 2rem', borderRadius: '4px',
+            textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem'
+          }}>
+            View Menu
+          </Link>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Our Story */}
+      <section style={{ padding: '6rem 2rem', maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
+        <p style={{ color: 'var(--color-primary)', letterSpacing: '0.3em', fontSize: '0.8rem', marginBottom: '1rem' }}>
+          OUR STORY
+        </p>
+        <h2 style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
+          Born from a lifetime of ramen
+        </h2>
+        <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: 1.9 }}>
+          What started as a family recipe in a tiny kitchen in Fukuoka
+          has grown into a restaurant devoted to one thing — the perfect bowl.
+          Every broth is simmered for 18 hours. Every noodle is made fresh daily.
+          We don't cut corners because you deserve the real thing.
+        </p>
+      </section>
+
+      {/* Featured dishes */}
+      <section style={{ padding: '4rem 2rem 6rem', maxWidth: '1100px', margin: '0 auto' }}>
+        <p style={{ color: 'var(--color-primary)', letterSpacing: '0.3em', fontSize: '0.8rem', marginBottom: '1rem', textAlign: 'center' }}>
+          SIGNATURE BOWLS
+        </p>
+        <h2 style={{ fontSize: '2.2rem', marginBottom: '3rem', textAlign: 'center' }}>
+          Where to start
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          {[
+            { name: 'Tonkotsu Classic', price: '$14', desc: 'Rich pork bone broth, chashu pork, soft egg, bamboo shoots', img: 'photo-1591814468924-caf88d1232e1' },
+            { name: 'Spicy Miso', price: '$15', desc: 'Fermented miso base, chilli oil, corn, ground pork, spring onion', img: 'photo-1569050467447-ce54b3bbc37d' },
+            { name: 'Shio Tori', price: '$13', desc: 'Clear chicken broth, delicate salt seasoning, yuzu zest, nori', img: 'photo-1614563637806-1d0e645e0940' },
+          ].map((dish) => (
+            <div key={dish.name} style={{
+              background: 'var(--color-surface)',
+              borderRadius: '8px', overflow: 'hidden',
+              border: '1px solid rgba(200,146,42,0.1)'
+            }}>
+              <div style={{
+                height: '200px',
+                background: `url('https://images.unsplash.com/photo-${dish.img}?w=600') center/cover`
+              }} />
+              <div style={{ padding: '1.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '0.5rem' }}>
+                  <h3 style={{ fontSize: '1.1rem' }}>{dish.name}</h3>
+                  <span style={{ color: 'var(--color-primary)', fontWeight: 600 }}>{dish.price}</span>
+                </div>
+                <p style={{ color: 'var(--color-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{dish.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <Link href="/menu" style={{
+            border: '1px solid var(--color-primary)', color: 'var(--color-primary)',
+            padding: '0.85rem 2rem', borderRadius: '4px',
+            textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem'
+          }}>
+            See Full Menu
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{
+        borderTop: '1px solid rgba(200,146,42,0.15)',
+        padding: '3rem 2rem',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        gap: '2rem',
+        maxWidth: '1100px',
+        margin: '0 auto'
+      }}>
+        <div>
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', color: 'var(--color-primary)', marginBottom: '0.75rem' }}>麺 Ramen House</p>
+          <p style={{ color: 'var(--color-muted)', fontSize: '0.9rem' }}>Authentic Japanese ramen,<br />made with love and patience.</p>
+        </div>
+        <div>
+          <p style={{ fontWeight: 600, marginBottom: '0.75rem' }}>Hours</p>
+          <p style={{ color: 'var(--color-muted)', fontSize: '0.9rem' }}>Mon–Fri: 11am – 10pm<br />Sat–Sun: 10am – 11pm</p>
+        </div>
+        <div>
+          <p style={{ fontWeight: 600, marginBottom: '0.75rem' }}>Find us</p>
+          <p style={{ color: 'var(--color-muted)', fontSize: '0.9rem' }}>123 Noodle Street<br />Your City, 00000</p>
+        </div>
+      </footer>
+
+    </main>
+  )
 }
