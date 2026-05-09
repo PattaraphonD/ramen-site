@@ -195,7 +195,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: safeEmail,
-      subject: 'Your reservation at Ramen House is confirmed!',
+      subject: 'Your reservation at 富裕 Fuyou Ramen House is confirmed!',
       html: `
         <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; color: #1a1a1a;">
           <h2 style="color: #c8922a;">Reservation Confirmed</h2>
@@ -209,7 +209,7 @@ export async function POST(request: Request) {
           <p style="color: #666; font-size: 0.9rem;">
             Need to change or cancel? Call us or reply to this email.
           </p>
-          <p style="color: #c8922a; font-weight: bold;">麺 Ramen House</p>
+          <p style="color: #c8922a; font-weight: bold;">富裕 Fuyou Ramen House</p>
         </div>
       `
     })

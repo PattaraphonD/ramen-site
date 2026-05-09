@@ -50,7 +50,7 @@ export default async function BlogPage() {
         borderBottom: '1px solid rgba(200,146,42,0.15)'
       }}>
         <Link href="/" style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', color: 'var(--color-primary)', textDecoration: 'none' }}>
-          麺 Ramen House
+          富裕 Fuyou Ramen House
         </Link>
         <div style={{ display: 'flex', gap: '2rem', fontSize: '0.9rem' }}>
           <Link href="/menu" style={{ color: 'var(--color-text)', textDecoration: 'none' }}>Menu</Link>
